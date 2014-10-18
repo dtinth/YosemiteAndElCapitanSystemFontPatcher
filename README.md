@@ -54,10 +54,11 @@ Where `System Font Name` is:
 | System Font Heavy | Heavy | &nbsp; |
 
 ...and `Font To Use` is the path to the font file you want to use.
-For example, `Raleway-Medium.ttf`. For `.ttc` files, see below.
+For example, `Raleway-Medium.ttf`.
 
-The font names that I did not put a star on are rarely used;
-you don't have to patch it.
+Some fonts come in `.ttc` file format, which contains many fonts in one file. For instructions to use them, see below.
+
+The font names that I did not put a star on are rarely used; you don't have to patch it.
 
 The script will
 
@@ -97,3 +98,25 @@ bin/patch 'System Font Medium P4'          'Avenir Next.ttc(Avenir Next Demi Bol
 bin/patch 'System Font Medium Italic P4'   'Avenir Next.ttc(Avenir Next Demi Bold Italic)'
 ```
 
+It generates:
+
+- System Avenir Next Bold Italic.ttf
+- System Avenir Next Bold.ttf
+- System Avenir Next Demi Bold Italic.ttf
+- System Avenir Next Demi Bold.ttf
+- System Avenir Next Medium Italic.ttf
+- System Avenir Next Medium.ttf
+
+
+Now you can copy these files into `~/Library/Fonts`, log out, and log back in. You should see the font changed!
+
+Thanks
+------
+
+I consulted these resources in creating the script:
+
+- [jenskutilek/FiraSystemFontReplacement](https://github.com/jenskutilek/FiraSystemFontReplacement)
+- [Lokaltog/powerline-fontpatcher](https://github.com/Lokaltog/powerline-fontpatcher)
+- [Design With FontForge: Line Spacing](http://designwithfontforge.com/en-US/Line_Spacing.html)
+- [Writing python scripts to change fonts in FontForge](http://fontforge.org/python.html)
+- [kawabata/hanamin-kdp - makefont.py](https://github.com/kawabata/hanamin-kdp/blob/master/makefont.py)
