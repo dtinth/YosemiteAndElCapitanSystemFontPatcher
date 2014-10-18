@@ -97,3 +97,14 @@ bin/patch 'System Font Medium P4'          'Avenir Next.ttc(Avenir Next Demi Bol
 bin/patch 'System Font Medium Italic P4'   'Avenir Next.ttc(Avenir Next Demi Bold Italic)'
 ```
 
+
+Thanks
+------
+
+I consulted these resources in creating the script:
+
+- [jenskutilek/FiraSystemFontReplacement](https://github.com/jenskutilek/FiraSystemFontReplacement)
+- [Lokaltog/powerline-fontpatcher](https://github.com/Lokaltog/powerline-fontpatcher)
+- [Design With FontForge: Line Spacing](http://designwithfontforge.com/en-US/Line_Spacing.html)
+- [Writing python scripts to change fonts in FontForge](http://fontforge.org/python.html)
+- [kawabata/hanamin-kdp - makefont.py](https://github.com/kawabata/hanamin-kdp/blob/master/makefont.py)
