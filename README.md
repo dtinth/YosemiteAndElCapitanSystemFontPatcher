@@ -6,7 +6,7 @@ Inspired by [FiraSystemFontReplacement](https://github.com/jenskutilek/FiraSyste
 
 Maybe it's just me, but for such a new and modern interface, Helvetica Neue feels… _ancient_,
 and Helvetica is already everywhere…
-Maybe something like Avenir Next is a better choice.
+A more futuristic font such as Avenir Next may be a better choice.
 
 <img src="http://i.imgur.com/I84LhWq.png" width="444.5" height="414.5" alt="Replacing the system font with Avenir next">
 
@@ -22,9 +22,10 @@ Install FontForge with Python support.
 brew install fontforge --with-python
 ```
 
-Make sure FontForge works:
+Make sure FontForge works in Python:
 
 ```python
+$ python
 >>> import fontforge
 >>> fontforge
 <module 'fontforge' from '/usr/local/lib/python2.7/site-packages/fontforge.so'>
@@ -40,7 +41,7 @@ bin/patch 'System Font Name' 'Font To Use'
 Where `System Font Name` is:
 
 | System Font Name | Description | &nbsp; |
-| ---------------- |
+| ---------------- | ----------- | ------ |
 | System Font Regular | Regular | :star: |
 | System Font Bold | Bold | :star: |
 | System Font Italic | Italic | &nbsp; |
