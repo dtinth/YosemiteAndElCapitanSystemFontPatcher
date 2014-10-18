@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+import sys
+reload(sys)
+sys.setdefaultencoding('UTF8')
+
+import fontforge
+import psMat
+
+def main():
+    template_file_name = 'HelveticaNeueDeskInterface.ttc'
+    convert(template_file_name, sys.argv[1], sys.argv[2])
+
+def height(font):
+    return float(font.descent - font.ascent)
+
+def adjust_height(source, template):
+    source.selection.all()
+    source.transform(psMat.translate(0, -source.descent))
+    source.transform(psMat.scale(height(template) / height(source)))
+    source.transform(psMat.translate(0, template.descent))
+    source.hhea_ascent = template.hhea_ascent
+    source.hhea_descent = template.hhea_descent
+
+def convert(template_file_name, template_font, source_fontpath):
+    source = fontforge.open(source_fontpath)
+    template = fontforge.open("%s(%s)" % (template_file_name, template_font))
+    adjust_height(source, template)
+    source.fontname = template.fontname
+    source.familyname = ".System %s" % (source.familyname,)
+    source.generate("System %s.ttf" % (source.fullname,))
+
+if __name__ == "__main__":
+    main()
