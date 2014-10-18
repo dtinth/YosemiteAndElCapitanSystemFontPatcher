@@ -98,6 +98,17 @@ bin/patch 'System Font Medium P4'          'Avenir Next.ttc(Avenir Next Demi Bol
 bin/patch 'System Font Medium Italic P4'   'Avenir Next.ttc(Avenir Next Demi Bold Italic)'
 ```
 
+It generates:
+
+- System Avenir Next Bold Italic.ttf
+- System Avenir Next Bold.ttf
+- System Avenir Next Demi Bold Italic.ttf
+- System Avenir Next Demi Bold.ttf
+- System Avenir Next Medium Italic.ttf
+- System Avenir Next Medium.ttf
+
+
+Now you can copy these files into `~/Library/Fonts`, log out, and log back in. You should see the font changed!
 
 Thanks
 ------
