@@ -11,15 +11,20 @@ def main():
     convert(template_file_name, sys.argv[1], sys.argv[2])
 
 def height(font):
-    return float(font.descent - font.ascent)
+    return float(font.capHeight)
 
 def adjust_height(source, template):
     source.selection.all()
-    source.transform(psMat.translate(0, -source.descent))
     source.transform(psMat.scale(height(template) / height(source)))
-    source.transform(psMat.translate(0, template.descent))
-    source.hhea_ascent = template.hhea_ascent
-    source.hhea_descent = template.hhea_descent
+    for attr in ['ascent', 'descent',
+                'hhea_ascent', 'hhea_ascent_add',
+                'hhea_descent', 'hhea_descent_add',
+                'os2_winascent', 'os2_winascent_add',
+                'os2_windescent', 'os2_windescent_add',
+                'os2_typoascent', 'os2_typoascent_add',
+                'os2_typodescent', 'os2_typodescent_add',
+                ]:
+        setattr(source, attr, getattr(template, attr))
 
 def convert(template_file_name, template_font, source_fontpath):
     source = fontforge.open(source_fontpath)
