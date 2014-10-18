@@ -54,10 +54,11 @@ Where `System Font Name` is:
 | System Font Heavy | Heavy | &nbsp; |
 
 ...and `Font To Use` is the path to the font file you want to use.
-For example, `Raleway-Medium.ttf`. For `.ttc` files, see below.
+For example, `Raleway-Medium.ttf`.
 
-The font names that I did not put a star on are rarely used;
-you don't have to patch it.
+Some fonts come in `.ttc` file format, which contains many fonts in one file. For instructions to use them, see below.
+
+The font names that I did not put a star on are rarely used; you don't have to patch it.
 
 The script will
 
