@@ -38,9 +38,9 @@ Patching a Font
 bin/patch 'System Font Name' 'Font To Use'
 ```
 
-Where `System Font Name` is:
+Where `System Font Name` is\*:
 
-| System Font Name | Description | &nbsp; |
+| System Font Name\* | Description | &nbsp; |
 | ---------------- | ----------- | ------ |
 | System Font Regular | Regular | :star: |
 | System Font Bold | Bold | :star: |
@@ -52,6 +52,8 @@ Where `System Font Name` is:
 | System Font Thin | Thin | &nbsp; |
 | System Font UltraLight | Ultra Light | &nbsp; |
 | System Font Heavy | Heavy | &nbsp; |
+
+(\* note: the above table is for English locale. For other locales, you must check the list of system font names by running `bin/list-fonts HelveticaNeueDeskInterface.ttc` — see issue [#1](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/1))
 
 ...and `Font To Use` is the path to the font file you want to use.
 For example, `Raleway-Medium.ttf`.
