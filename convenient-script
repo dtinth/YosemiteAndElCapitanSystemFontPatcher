@@ -1,0 +1,110 @@
+#!/usr/bin/env osascript -l JavaScript
+
+var app = Application.currentApplication()
+app.includeStandardAdditions = true
+function run(argv) {
+  welcome()
+  if (!check("python -c 'import fontforge'")) {
+    return alert('FontForge not installed properly!',
+      'Please install FontForge with Python scripting support first.')
+  }
+  var systemFontFile = 'HelveticaNeueDeskInterface.ttc'
+  var fonts
+  try {
+    fonts = getFonts(systemFontFile)
+  } catch (e) {
+    return error('Unable to read fonts in ' + systemFontFile)
+  }
+  var selector = new FontSelector()
+  for (;;) {
+    var source = selector()
+    var destination = app.chooseFromList(fonts, {
+          withPrompt: 'Choose the target systom font to replace'
+        })[0]
+    convert(source, destination)
+    if (!confirm('Press OK to convert more fonts')) return
+  }
+}
+
+function convert(source, destination) {
+  try {
+    var result = app.doShellScript('bin/patch ' + quote(destination) + ' ' + quote(source))
+    alert('Converted!', result)
+  } catch (e) {
+    error('Unable to convert font! ' + e)
+  }
+}
+
+function displayAlert(defaults, text, informationalText) {
+  var options = Object.create(defaults)
+  if (informationalText) options.message = informationalText
+  app.displayAlert(text, options)
+}
+
+var alert = displayAlert.bind(null, { })
+var error = displayAlert.bind(null, { as: 'critical' }, 'Error!')
+
+function confirm(text, defaultAnswer) {
+  try {
+    app.displayDialog(text)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
+function check(command) {
+  try {
+    app.doShellScript(command)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
+function quote(x) {
+  return "'" + x.replace(/'/g, "'\\''") + "'"
+}
+
+function getFonts(file) {
+  return app.doShellScript('bin/list-fonts ' + quote(file))
+    .trim()
+    .split(/\r\n|\r|\n/)
+    .map(function(line) {
+      return line.replace(/^\s*- /, '')
+    })
+}
+
+function FontSelector() {
+  var file = null
+  var list = null
+  return function() {
+    if (!list) {
+      var selectedFile = app.chooseFile({
+        withPrompt: 'Please select a font file to use as system font.',
+        ofType: ['public.font']
+      }).toString()
+      var fonts
+      try {
+        fonts = getFonts(selectedFile)
+      } catch (e) {
+        error('Unable to read fonts from ' + selectedFile)
+        throw e
+      }
+      if (fonts.length == 1) {
+        return selectedFile + '(' + fonts[0] + ')'
+      } else {
+        file = selectedFile
+        list = fonts
+      }
+    }
+    var selectedFont = app.chooseFromList(list, {
+          withPrompt: 'Please select the desired font.' })[0]
+    return file + '(' + selectedFont + ')'
+  }
+}
+
+function welcome() {
+  alert('Welcome!', 'This tool will help you patch your system font.')
+}
+
