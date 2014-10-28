@@ -11,12 +11,12 @@ A more futuristic font such as Avenir Next may be a better choice.
 <img src="http://i.imgur.com/I84LhWq.png" width="444.5" height="414.5" alt="Replacing the system font with Avenir next">
 
 
+
+
 Prerequisites
 -------------
 
-Copy __HelveticaNeueDeskInterface.ttc__ from __/System/Library/Fonts/__ to the root of the repository.
-
-Install FontForge with Python support.
+First, install [Homebrew](http://brew.sh/). Then install FontForge with Python support.
 
 ```bash
 brew install fontforge --with-python
@@ -25,14 +25,24 @@ brew install fontforge --with-python
 Make sure FontForge works in Python:
 
 ```python
-$ python
->>> import fontforge
->>> fontforge
-<module 'fontforge' from '/usr/local/lib/python2.7/site-packages/fontforge.so'>
+python -c 'import fontforge; print "FontForge works in Python"'
 ```
 
-Patching a Font
+
+New: Convenient Script
+----------------------
+
+A convenient script is provided for you to convert fonts using a GUI wizard. In your Terminal, `cd` to the project folder and run:
+
+```bash
+bin/convenient-script
+```
+
+
+Patching a Font (Manual)
 ---------------
+
+Copy __HelveticaNeueDeskInterface.ttc__ from __/System/Library/Fonts/__ to the root of the repository. Then run the following command:
 
 ```bash
 bin/patch 'System Font Name' 'Font To Use'
