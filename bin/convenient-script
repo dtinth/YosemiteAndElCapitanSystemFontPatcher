@@ -9,6 +9,11 @@ function run(argv) {
       'Please install FontForge with Python scripting support first.')
   }
   var systemFontFile = 'HelveticaNeueDeskInterface.ttc'
+  if (!check('test -f ' + quote(systemFontFile))) {
+    if (!check('cp /System/Library/Fonts/HelveticaNeueDeskInterface.ttc .')) {
+      return error('Cannot copy HelveticaNeueDeskInterface.ttc!')
+    }
+  }
   var fonts
   try {
     fonts = getFonts(systemFontFile)
