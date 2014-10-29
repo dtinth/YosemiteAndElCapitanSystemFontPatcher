@@ -11,6 +11,10 @@ A more futuristic font such as Avenir Next may be a better choice.
 <img src="http://i.imgur.com/I84LhWq.png" width="444.5" height="414.5" alt="Replacing the system font with Avenir next">
 
 
+New: Step by Step Tutorial
+--------------------------
+
+[![Step by Step Tutorial](https://svg-buttons.herokuapp.com/button/plain.svg?button_width=440&text=Step+By+Step+Tutorial)](https://github.com/dtinth/YosemiteSystemFontPatcher/wiki/Step-by-Step-Guide)
 
 
 Prerequisites
