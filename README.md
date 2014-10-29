@@ -14,8 +14,11 @@ A more futuristic font such as Avenir Next may be a better choice.
 New: Step by Step Tutorial
 --------------------------
 
+<br>
+
 [![Step by Step Tutorial](https://svg-buttons.herokuapp.com/button/plain.svg?button_width=440&text=Step+By+Step+Tutorial)](https://github.com/dtinth/YosemiteSystemFontPatcher/wiki/Step-by-Step-Guide)
 
+<br>
 
 Prerequisites
 -------------
