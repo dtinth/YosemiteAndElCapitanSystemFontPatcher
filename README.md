@@ -23,7 +23,7 @@ New: Step by Step Tutorial
 Prerequisites
 -------------
 
-First, install [Homebrew](http://brew.sh/). Then install FontForge with Python support.
+First, install [Homebrew](http://brew.sh/) and [XQuartz](https://xquartz.macosforge.org/landing/). Then install FontForge with Python support.
 
 ```bash
 brew install fontforge --with-python
