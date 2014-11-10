@@ -26,13 +26,29 @@ def adjust_height(source, template):
                 ]:
         setattr(source, attr, getattr(template, attr))
 
+
+def sfnt_to_update(source):
+    out = []
+    for (language, strid, string) in source.sfnt_names:
+        if strid in ['Compatible Full', 'Preferred Family', 'UniqueID']:
+            if not string.startswith('System '):
+                out.append((language, strid, 'System %s' % string))
+    return out
+
+def update_sfnt(source):
+    for (language, strid, string) in sfnt_to_update(source):
+        source.appendSFNTName(language, strid, string)
+
 def convert(template_file_name, template_font, source_fontpath):
     source = fontforge.open(source_fontpath)
     template = fontforge.open("%s(%s)" % (template_file_name, template_font))
+    out_filename = "System %s %s.ttf" % (source.fullname, template_font)
     adjust_height(source, template)
     source.fontname = template.fontname
-    source.familyname = ".System %s" % (source.familyname,)
-    source.generate("System %s.ttf" % (source.fullname,))
+    source.familyname = "System %s" % (source.familyname,)
+    source.fullname = "System %s" % (source.fullname,)
+    update_sfnt(source)
+    source.generate(out_filename)
 
 if __name__ == "__main__":
     main()
