@@ -23,6 +23,8 @@ New: Step by Step Tutorial
 Prerequisites
 -------------
 
+### Using Homebrew (easy!)
+
 First, install [Homebrew](http://brew.sh/) and [XQuartz](https://xquartz.macosforge.org/landing/). Then install FontForge with Python support.
 
 ```bash
@@ -33,6 +35,21 @@ Make sure FontForge works in Python:
 
 ```python
 python -c 'import fontforge; print "FontForge works in Python"'
+```
+
+
+### Using MacPorts (for those who prefer)
+
+[Instructions provided by @niccottrell.](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/6) Check the version of Python by running:
+
+```bash
+python --version
+```
+
+Note the major and minor version, such as 2.7. Then install Fontforge with the matching version of Python.
+
+```bash
+sudo port install fontforge +python27
 ```
 
 
