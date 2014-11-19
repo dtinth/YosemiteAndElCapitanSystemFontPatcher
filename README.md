@@ -122,7 +122,7 @@ Mac OS X will use these fonts instead of the system fonts.
 Example
 -------
 
-To make __Avenir Next__ your system font, copy __Avenir Next.ttc__ from __/Library/Fonts__ into the repository root, and then use this script:
+To make __Avenir Next__ your system font, copy __Avenir Next.ttc__ from __/System/Library/Fonts__ into the repository root, and then use this script:
 
 ```bash
 #!/bin/bash -e
