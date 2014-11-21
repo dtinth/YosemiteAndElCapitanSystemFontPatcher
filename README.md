@@ -11,6 +11,15 @@ A more futuristic font such as Avenir Next may be a better choice.
 <img src="http://i.imgur.com/I84LhWq.png" width="444.5" height="414.5" alt="Replacing the system font with Avenir next">
 
 
+Project Status: Help Wanted
+-------------------------------
+
+The software provided here works for me, and I get the Avenir Next font I wanted.
+You can also use this software to patch fonts for your own use as well.
+However, there are few minor issues, such as [font baseline issue](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/12) or custom fonts sometimes [crash Google Chrome](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/11) on some machines.
+I'd like some help from the community to resolve these, especially font experts.
+
+
 New: Step by Step Tutorial
 --------------------------
 
@@ -156,3 +165,12 @@ I consulted these resources in creating the script:
 - [Design With FontForge: Line Spacing](http://designwithfontforge.com/en-US/Line_Spacing.html)
 - [Writing python scripts to change fonts in FontForge](http://fontforge.org/python.html)
 - [kawabata/hanamin-kdp - makefont.py](https://github.com/kawabata/hanamin-kdp/blob/master/makefont.py)
+
+
+Disclaimer
+----------
+
+- This software has been provided AS-IS. Use at your own risk.
+- I provide this software for people to patch fonts for their own use. I don't support redistributing patched licensed fonts.
+
+
