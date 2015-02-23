@@ -18,6 +18,7 @@ def adjust_height(source, template):
     source.transform(psMat.scale(height(template) / height(source)))
     for attr in ['ascent', 'descent',
                 'hhea_ascent', 'hhea_ascent_add',
+                'hhea_linegap',
                 'hhea_descent', 'hhea_descent_add',
                 'os2_winascent', 'os2_winascent_add',
                 'os2_windescent', 'os2_windescent_add',
