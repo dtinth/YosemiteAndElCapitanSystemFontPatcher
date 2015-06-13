@@ -16,7 +16,7 @@ Project Status: Help Wanted
 
 The software provided here works for me, and I get the Avenir Next font I wanted.
 You can also use this software to patch fonts for your own use as well.
-However, there are few minor issues, such as [font baseline issue](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/12) or custom fonts sometimes [crash Google Chrome](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/11) on some machines.
+However, there are few minor issues, such as [font baseline issue](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/12).
 I'd like some help from the community to resolve these, especially font experts.
 
 
@@ -34,6 +34,8 @@ Prerequisites
 
 ### Using Homebrew (easy!)
 
+__Note:__ [This method doesn't seem to work anymore on Yosemite 10.10.3](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/18#issuecomment-111650844). You can try [installing using MacPorts](#using-macports-for-those-who-prefer) (see [the discussion](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/18#issuecomment-111650844)) or if you don't like MacPorts, try [running YosemiteSystemFontPatcher inside a Linux box](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/17#issuecomment-111446387).
+
 First, install [Homebrew](http://brew.sh/) and [XQuartz](https://xquartz.macosforge.org/landing/). Then install FontForge with Python support.
 
 ```bash
@@ -49,16 +51,11 @@ python -c 'import fontforge; print "FontForge works in Python"'
 
 ### Using MacPorts (for those who prefer)
 
-[Instructions provided by @niccottrell.](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/6) Check the version of Python by running:
-
-```bash
-python --version
-```
-
-Note the major and minor version, such as 2.7. Then install Fontforge with the matching version of Python.
+[Instructions provided by @AluminumPea.](https://github.com/dtinth/YosemiteSystemFontPatcher/issues/18#issuecomment-111650844) After installing MacPorts, install Fontforge with Python 2.7 support and switch to that Python. Make sure that you are not using Homebrew's Python!
 
 ```bash
 sudo port install fontforge +python27
+sudo port select --set python python27
 ```
 
 
@@ -124,7 +121,7 @@ For example, `Avenir Next.ttc(Avenir Next Medium)`.
 Installation
 ------------
 
-Simply copy the generated font files to `~/Library/Fonts`.
+Simply copy the generated font files to `/Library/Fonts`.
 Mac OS X will use these fonts instead of the system fonts.
 
 
