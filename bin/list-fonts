@@ -10,5 +10,5 @@ source_file_name = sys.argv[1]
 source_fonts = fontforge.fontsInFile(source_file_name)
 
 for font in source_fonts:
-    print "-", font
+    print source_file_name + '(' + font + ')'
 

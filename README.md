@@ -1,7 +1,7 @@
-Yosemite System Font Patcher
-============================
+Yosemite and El Capitan System Font Patcher
+===========================================
 
-Change the system font of Mac OS X Yosemite.
+Change the system font of Mac OS X Yosemite and El Capitan.
 Inspired by [FiraSystemFontReplacement](https://github.com/jenskutilek/FiraSystemFontReplacement).
 
 Maybe it's just me, but for such a new and modern interface, Helvetica Neue feels… _ancient_,
@@ -20,10 +20,16 @@ However, there are few minor issues, such as [font baseline issue](https://githu
 I'd like some help from the community to resolve these, especially font experts.
 
 
-New: Step by Step Tutorial
---------------------------
+New: Step by Step Tutorial (Yosemite Only)
+------------------------------------------
 
 <br>
+
+<p align="center">
+<strong>Note:</strong>
+The convenient script and step by step tutorial currently only works for Yosemite.
+Contributions to help update this to also work with El Capitan would be much appreciated.
+</p>
 
 [![Step by Step Tutorial](https://svg-buttons.herokuapp.com/button/plain.svg?button_width=440&text=Step+By+Step+Tutorial)](https://github.com/dtinth/YosemiteSystemFontPatcher/wiki/Step-by-Step-Guide)
 
@@ -59,8 +65,14 @@ sudo port select --set python python27
 ```
 
 
-New: Convenient Script
-----------------------
+New: Convenient Script (Yosemite Only)
+--------------------------------------
+
+<p align="center">
+<strong>Note:</strong>
+The convenient script and step by step tutorial currently only works for Yosemite.
+Contributions to help update this to also work with El Capitan would be much appreciated.
+</p>
 
 A convenient script is provided for you to convert fonts using a GUI wizard. In your Terminal, `cd` to the project folder and run:
 
@@ -125,8 +137,59 @@ Simply copy the generated font files to `/Library/Fonts`.
 Mac OS X will use these fonts instead of the system fonts.
 
 
-Example
--------
+Examples
+--------
+
+### El Capitan
+
+The following Bash script converts Avenir Next into a system font usable with El Capitan.
+
+```sh
+patch-system-font() {
+  BASE="$1"
+  REPLACEMENT="$2"
+  ./bin/patch "/System/Library/Fonts/$BASE" "/System/Library/Fonts/$REPLACEMENT"
+}
+
+patch-system-font 'SFNSDisplay-Black.otf' 'Avenir Next.ttc(Avenir Next Heavy)'
+patch-system-font 'SFNSDisplay-Bold.otf' 'Avenir Next.ttc(Avenir Next Bold)'
+patch-system-font 'SFNSDisplay-Heavy.otf' 'Avenir Next.ttc(Avenir Next Heavy)'
+patch-system-font 'SFNSDisplay-Light.otf' 'Avenir Next.ttc(Avenir Next Regular)'
+patch-system-font 'SFNSDisplay-Medium.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSDisplay-Regular.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSDisplay-Semibold.otf' 'Avenir Next.ttc(Avenir Next Demi Bold)'
+patch-system-font 'SFNSDisplay-Thin.otf' 'Avenir Next.ttc(AvenirNext-UltraLight)'
+patch-system-font 'SFNSDisplay-Ultralight.otf' 'Avenir Next.ttc(AvenirNext-UltraLight)'
+patch-system-font 'SFNSText-Bold.otf' 'Avenir Next.ttc(Avenir Next Bold)'
+patch-system-font 'SFNSText-BoldG1.otf' 'Avenir Next.ttc(Avenir Next Bold)'
+patch-system-font 'SFNSText-BoldG2.otf' 'Avenir Next.ttc(Avenir Next Bold)'
+patch-system-font 'SFNSText-BoldG3.otf' 'Avenir Next.ttc(Avenir Next Bold)'
+patch-system-font 'SFNSText-BoldItalic.otf' 'Avenir Next.ttc(Avenir Next Bold Italic)'
+patch-system-font 'SFNSText-BoldItalicG1.otf' 'Avenir Next.ttc(Avenir Next Bold Italic)'
+patch-system-font 'SFNSText-BoldItalicG2.otf' 'Avenir Next.ttc(Avenir Next Bold Italic)'
+patch-system-font 'SFNSText-BoldItalicG3.otf' 'Avenir Next.ttc(Avenir Next Bold Italic)'
+patch-system-font 'SFNSText-Heavy.otf' 'Avenir Next.ttc(Avenir Next Heavy)'
+patch-system-font 'SFNSText-HeavyItalic.otf' 'Avenir Next.ttc(Avenir Next Heavy Italic)'
+patch-system-font 'SFNSText-Light.otf' 'Avenir Next.ttc(Avenir Next Regular)'
+patch-system-font 'SFNSText-LightItalic.otf' 'Avenir Next.ttc(Avenir Next Italic)'
+patch-system-font 'SFNSText-Medium.otf' 'Avenir Next.ttc(Avenir Next Demi Bold)'
+patch-system-font 'SFNSText-MediumItalic.otf' 'Avenir Next.ttc(Avenir Next Demi Bold Italic)'
+patch-system-font 'SFNSText-Regular.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSText-RegularG1.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSText-RegularG2.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSText-RegularG3.otf' 'Avenir Next.ttc(Avenir Next Medium)'
+patch-system-font 'SFNSText-RegularItalic.otf' 'Avenir Next.ttc(Avenir Next Medium Italic)'
+patch-system-font 'SFNSText-RegularItalicG1.otf' 'Avenir Next.ttc(Avenir Next Medium Italic)'
+patch-system-font 'SFNSText-RegularItalicG2.otf' 'Avenir Next.ttc(Avenir Next Medium Italic)'
+patch-system-font 'SFNSText-RegularItalicG3.otf' 'Avenir Next.ttc(Avenir Next Medium Italic)'
+patch-system-font 'SFNSText-Semibold.otf' 'Avenir Next.ttc(Avenir Next Demi Bold)'
+patch-system-font 'SFNSText-SemiboldItalic.otf' 'Avenir Next.ttc(Avenir Next Demi Bold Italic)'
+```
+
+After running this script, copy the resulting font files to `/Library/Fonts`.
+
+
+### Yosemite
 
 To make __Avenir Next__ your system font, copy __Avenir Next.ttc__ from __/System/Library/Fonts__ into the repository root, and then use this script:
 
@@ -150,7 +213,7 @@ It generates:
 - System Avenir Next Medium.ttf
 
 
-Now you can copy these files into `~/Library/Fonts`, log out, and log back in. You should see the font changed!
+Now you can copy these files into `/Library/Fonts`, log out, and log back in. You should see the font changed!
 
 Thanks
 ------

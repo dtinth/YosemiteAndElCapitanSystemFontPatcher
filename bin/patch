@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import os
+import re
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF8')
@@ -7,8 +9,10 @@ import fontforge
 import psMat
 
 def main():
-    template_file_name = 'HelveticaNeueDeskInterface.ttc'
-    convert(template_file_name, sys.argv[1], sys.argv[2])
+    template_font = sys.argv[1]
+    if not ('.' in template_font or '(' in template_font):
+        template_font = 'HelveticaNeueDeskInterface.ttc(' + template_font + ')'
+    convert(template_font, sys.argv[2])
 
 def height(font):
     return float(font.capHeight)
@@ -40,10 +44,13 @@ def update_sfnt(source):
     for (language, strid, string) in sfnt_to_update(source):
         source.appendSFNTName(language, strid, string)
 
-def convert(template_file_name, template_font, source_fontpath):
+def get_font_name(font):
+    return re.sub(r'\.(?:otf|ttf|ttc)', '', os.path.basename(font))
+
+def convert(template_font, source_fontpath):
     source = fontforge.open(source_fontpath)
-    template = fontforge.open("%s(%s)" % (template_file_name, template_font))
-    out_filename = "System %s %s.ttf" % (source.fullname, template_font)
+    template = fontforge.open(template_font)
+    out_filename = "System %s %s.ttf" % (source.fullname, get_font_name(template_font))
     adjust_height(source, template)
     source.fontname = template.fontname
     source.familyname = "System %s" % (source.familyname,)
